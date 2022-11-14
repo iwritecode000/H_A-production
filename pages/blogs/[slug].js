@@ -36,9 +36,9 @@ const Slug = () => {
                                     <br />
                                     <br />
                                     Then they show that show to the people who make shows, and on
-                                    the strength of that one show they decide if they're going to
+                                    the strength of that one show they decide if theyre going to
                                     make more shows. Some pilots get picked and become television
-                                    programs.Some don't, become nothing. She starred in one of the
+                                    programs.Some dont, become nothing. She starred in one of the
                                     ones that became nothing.
                                 </p>
                             </div>
@@ -48,7 +48,7 @@ const Slug = () => {
                                 </p>
                                 <p className="text-gray-700">
                                     A flower in my garden, a mystery in my panties. Heart attack
-                                    never stopped old Big Bear. I didn't even know we were calling
+                                    never stopped old Big Bear. I didnt even know we were calling
                                     him Big Bear.
                                 </p>
                             </div>
@@ -66,20 +66,20 @@ const Slug = () => {
                                     Michael Knight a young loner on a crusade to champion the cause
                                     of the innocent. The helpless. The powerless in a world of
                                     criminals who operate above the law. Here he comes Here comes
-                                    Speed Racer. He's a demon on wheels.
+                                    Speed Racer. Hes a demon on wheels.
                                 </p>
                             </div>
                             <div>
                                 <p className="mb-4 text-xl font-medium">
-                                    Galaxies Orion's sword globular star cluster?
+                                    Galaxies Orions sword globular star cluster?
                                 </p>
                                 <p className="text-gray-700">
                                     A business big enough that it could be listed on the NASDAQ goes
                                     belly up. Disappears!
                                     <br />
                                     <br />
-                                    It ceases to exist without me. No, you clearly don't know who
-                                    you're talking to, so let me clue you in.
+                                    It ceases to exist without me. No, you clearly dont know who
+                                    youre talking to, so let me clue you in.
                                 </p>
                             </div>
                             <div>
@@ -88,7 +88,7 @@ const Slug = () => {
                                 </p>
                                 <p className="text-gray-700">
                                     This is not about revenge. This is about justice. A lot of
-                                    things can change in twelve years, Admiral. Well, that's
+                                    things can change in twelve years, Admiral. Well, thats
                                     certainly good to know. About four years. I got tired of hearing
                                     how young I looked.
                                 </p>
