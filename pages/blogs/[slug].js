@@ -32,7 +32,7 @@ const Slug = () => {
                                 </p>
                                 <p className="text-gray-700">
                                     Well, the way they make shows is, they make one show. That
-                                    show's called a pilot.
+                                    shows called a pilot.
                                     <br />
                                     <br />
                                     Then they show that show to the people who make shows, and on
