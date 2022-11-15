@@ -1,105 +1,54 @@
 import React from 'react'
+import Image from 'next/image'
 import Navbar from '../../components/Navbar'
 import Footer from '../../components/Footer'
+import { useRouter } from 'next/router'
 
-const Slug = () => {
+
+const Slug = ({ blog }) => {
+    const router = useRouter()
+    const { slug } = router.query
     return (
         <>
             <Navbar />
             <div className="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
-                <div className="max-w-xl sm:mx-auto lg:max-w-2xl">
-             </div>
+
                 <div className="max-w-screen-xl sm:mx-auto">
                     <div className="grid grid-cols-1 gap-16 row-gap-8 lg:grid-cols-2">
-                        <div className="space-y-8">
-                            <div>
-                                <p className="mb-4 text-xl font-medium">
-                                    The quick, brown fox jumps over a lazy dog?
-                                </p>
-                                <p className="text-gray-700">
-                                    Space, the final frontier. These are the voyages of the Starship
-                                    Enterprise. Its five-year mission: to explore strange new
-                                    worlds.
-                                    <br />
-                                    <br />
-                                    Many say exploration is part of our destiny, but it’s actually
-                                    our duty to future generations.
-                                </p>
-                            </div>
-                            <div>
-                                <p className="mb-4 text-xl font-medium">
-                                    The first mate and his Skipper too will do?
-                                </p>
-                                <p className="text-gray-700">
-                                    Well, the way they make shows is, they make one show. That
-                                    shows called a pilot.
-                                    <br />
-                                    <br />
-                                    Then they show that show to the people who make shows, and on
-                                    the strength of that one show they decide if theyre going to
-                                    make more shows. Some pilots get picked and become television
-                                    programs.Some dont, become nothing. She starred in one of the
-                                    ones that became nothing.
-                                </p>
-                            </div>
-                            <div>
-                                <p className="mb-4 text-xl font-medium">
-                                    Is the Space Pope reptilian!?
-                                </p>
-                                <p className="text-gray-700">
-                                    A flower in my garden, a mystery in my panties. Heart attack
-                                    never stopped old Big Bear. I didnt even know we were calling
-                                    him Big Bear.
-                                </p>
-                            </div>
-                        </div>
-                        <div className="space-y-8">
-                            <div>
-                                <p className="mb-4 text-xl font-medium">
-                                    How much money you got on you?
-                                </p>
-                                <p className="text-gray-700">
-                                    The first mate and his Skipper too will do their very best to
-                                    make the others comfortable in their tropic island nest.
-                                    <br />
-                                    <br />
-                                    Michael Knight a young loner on a crusade to champion the cause
-                                    of the innocent. The helpless. The powerless in a world of
-                                    criminals who operate above the law. Here he comes Here comes
-                                    Speed Racer. Hes a demon on wheels.
-                                </p>
-                            </div>
-                            <div>
-                                <p className="mb-4 text-xl font-medium">
-                                    Galaxies Orions sword globular star cluster?
-                                </p>
-                                <p className="text-gray-700">
-                                    A business big enough that it could be listed on the NASDAQ goes
-                                    belly up. Disappears!
-                                    <br />
-                                    <br />
-                                    It ceases to exist without me. No, you clearly dont know who
-                                    youre talking to, so let me clue you in.
-                                </p>
-                            </div>
-                            <div>
-                                <p className="mb-4 text-xl font-medium">
-                                    When has justice ever been as simple as a rule book?
-                                </p>
-                                <p className="text-gray-700">
-                                    This is not about revenge. This is about justice. A lot of
-                                    things can change in twelve years, Admiral. Well, thats
-                                    certainly good to know. About four years. I got tired of hearing
-                                    how young I looked.
-                                </p>
-                            </div>
-                        </div>
+                        {
+                            blog.attributes.content.map((item) => {
+                                return (
+                                    <>
+                                        <div className="space-y-8">
+                                            <div>
+                                                <p className="mb-4 text-xl font-medium">
+                                                    {item.point.issue}
+                                                </p>
+                                                <p className="text-gray-700">
+                                                    {item.point.discussions}
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </>
+                                )
+                            })
+                        }
                     </div>
                 </div>
             </div>
             <Footer />
         </>
     )
+}
+
+export async function getServerSideProps(context) {
+    console.log(context.query.slug)
+    let headers = { Authorization: 'Bearer 3d483172cb28029d12a1fb93c38372258fd2674d3afcdc17a216db917744b7d09720c1c64d1b055451cad2eaf2edefb50c6bd8a4daa6f70cb0186b7423f45b4bd6ac3f3a150d67f3ab28aae94b1c1d26cd98f5cb13dbf9927d1414213b76e718be616d1ccf782a23d0390c085ce30948a85d53746b74ec491efa8224c5927a66' }
+    let a = await fetch("https://blooming-scrubland-06731.herokuapp.com/api/blogs?filters[slug]=" + context.query.slug + "&populate=*", { headers: headers })
+    let blog = await a.json()
+    return {
+        props: { blog: blog.data[0] },
+    }
 }
 
 export default Slug
